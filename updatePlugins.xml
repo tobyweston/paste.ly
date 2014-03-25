@@ -1,0 +1,3 @@
+<plugins>
+    <plugin id="ly.paste.plugin.PasteAction" url="file:///Users/toby/Workspace/video-training/jdk8/plugin/Paste.ly.jar" version="1"/>
+</plugins>
