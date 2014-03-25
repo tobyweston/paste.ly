@@ -10,7 +10,7 @@ import static java.util.Arrays.*;
 
 public class Sections {
 
-	private List<String> sections = new ArrayList<>();
+	private List<String> sections = new ArrayList<String>();
 	private Iterator<String> iterator = new EmptyIterator();
 
 	public void initialise(String text) {

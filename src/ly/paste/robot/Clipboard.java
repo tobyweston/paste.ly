@@ -24,10 +24,12 @@ public class Clipboard {
 			if (sections.isEmpty())
 				sections.initialise(text);
             new AutoType(robot).text(sections.next());
-        } catch (UnsupportedFlavorException | IOException e) {
+        } catch (UnsupportedFlavorException e) {
+            throw new IllegalStateException("unable to paste non-string clipboard contents, please make sure only text is in your clipboard");
+        } catch (IOException e) {
             throw new IllegalStateException("unable to paste non-string clipboard contents, please make sure only text is in your clipboard");
         }
-    }
+	}
 
     public static void main(String... args) throws Exception {
 		countdown();

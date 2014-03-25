@@ -29,51 +29,51 @@ public class KeyFactory {
 		if (Character.isDigit(text.charAt(0)))
 			return new Key(getKeyCodeFromKeyEvent("VK_" + text), robot);
 
-		switch (text) {
+		switch (text.charAt(0)) {
 			// control keys
-			case "←": return new Key(VK_LEFT, robot);
-			case "↑": return new Key(VK_UP, robot);
-			case "→": return new Key(VK_RIGHT, robot);
-			case "↓": return new Key(VK_DOWN, robot);
-			case "↚": return new Key(VK_BACK_SPACE, robot);
+			case '←': return new Key(VK_LEFT, robot);
+			case '↑': return new Key(VK_UP, robot);
+			case '→': return new Key(VK_RIGHT, robot);
+			case '↓': return new Key(VK_DOWN, robot);
+			case '↚': return new Key(VK_BACK_SPACE, robot);
 
 			// special keys
-			case "!": return new Key(VK_1, Key.Modifier.Shift, robot);
-			case "@": return new Key(VK_2, Key.Modifier.Shift, robot);
-			case "£": return new Key(VK_3, Key.Modifier.Shift, robot);
-			case "$": return new Key(VK_4, Key.Modifier.Shift, robot);
-			case "%": return new Key(VK_5, Key.Modifier.Shift, robot);
-			case "^": return new Key(VK_6, Key.Modifier.Shift, robot);
-			case "&": return new Key(VK_7, Key.Modifier.Shift, robot);
-			case "*": return new Key(VK_8, Key.Modifier.Shift, robot);
-			case "(": return new Key(VK_9, Key.Modifier.Shift, robot);
-			case ")": return new Key(VK_0, Key.Modifier.Shift, robot);
-			case ".": return new Key(VK_PERIOD, robot);
-			case " ": return new Key(VK_SPACE, robot);
-			case "?": return new Key(VK_SLASH, Key.Modifier.Shift, robot);
-			case ",": return new Key(VK_COMMA, robot);
-			case "`": return new Key(VK_BACK_QUOTE, robot);
-			case "'": return new Key(VK_QUOTE, robot);
-			case "-": return new Key(VK_MINUS, robot);
-			case "=": return new Key(VK_EQUALS, robot);
-			case "~": return new Key(VK_BACK_QUOTE, Key.Modifier.Shift, robot);
-			case "\"": return new Key(VK_QUOTE, Key.Modifier.Shift, robot);
-			case "#": return new Key(VK_NUMBER_SIGN, robot);
-			case "_": return new Key(VK_MINUS, Key.Modifier.Shift, robot);
-			case "+": return new Key(VK_EQUALS, Key.Modifier.Shift, robot);
-			case "\t": return new Nothing();// return new Key(VK_TAB, robot); // ignore tabs if the IDE is going to insert them for us
-			case "\n": return new Key(VK_ENTER, robot);
-			case "[": return new Key(VK_OPEN_BRACKET, robot);
-			case "]": return new Key(VK_CLOSE_BRACKET, robot);
-			case "\\": return new Key(VK_BACK_SLASH, robot);
-			case "{": return new Key(VK_OPEN_BRACKET, Key.Modifier.Shift, robot);
-			case "}": return new Key(VK_CLOSE_BRACKET, Key.Modifier.Shift, robot);
-			case "|": return new Key(VK_BACK_SLASH, Key.Modifier.Shift, robot);
-			case ";": return new Key(VK_SEMICOLON, robot);
-			case ":": return new Key(VK_SEMICOLON, Key.Modifier.Shift, robot);
-			case "<": return new Key(VK_COMMA, Key.Modifier.Shift, robot);
-			case ">": return new Key(VK_PERIOD, Key.Modifier.Shift, robot);
-			case "/": return new Key(VK_SLASH, robot);
+			case '!': return new Key(VK_1, Key.Modifier.Shift, robot);
+			case '@': return new Key(VK_2, Key.Modifier.Shift, robot);
+			case '£': return new Key(VK_3, Key.Modifier.Shift, robot);
+			case '$': return new Key(VK_4, Key.Modifier.Shift, robot);
+			case '%': return new Key(VK_5, Key.Modifier.Shift, robot);
+			case '^': return new Key(VK_6, Key.Modifier.Shift, robot);
+			case '&': return new Key(VK_7, Key.Modifier.Shift, robot);
+			case '*': return new Key(VK_8, Key.Modifier.Shift, robot);
+			case '(': return new Key(VK_9, Key.Modifier.Shift, robot);
+			case ')': return new Key(VK_0, Key.Modifier.Shift, robot);
+			case '.': return new Key(VK_PERIOD, robot);
+			case ' ': return new Key(VK_SPACE, robot);
+			case '?': return new Key(VK_SLASH, Key.Modifier.Shift, robot);
+			case ',': return new Key(VK_COMMA, robot);
+			case '`': return new Key(VK_BACK_QUOTE, robot);
+			case '"': return new Key(VK_QUOTE, robot);
+			case '-': return new Key(VK_MINUS, robot);
+			case '=': return new Key(VK_EQUALS, robot);
+			case '~': return new Key(VK_BACK_QUOTE, Key.Modifier.Shift, robot);
+			case '\'': return new Key(VK_QUOTE, Key.Modifier.Shift, robot);
+			case '#': return new Key(VK_NUMBER_SIGN, robot);
+			case '_': return new Key(VK_MINUS, Key.Modifier.Shift, robot);
+			case '+': return new Key(VK_EQUALS, Key.Modifier.Shift, robot);
+			case '\t': return new Nothing();// return new Key(VK_TAB, robot); // ignore tabs if the IDE is going to insert them for us
+			case '\n': return new Key(VK_ENTER, robot);
+			case '[': return new Key(VK_OPEN_BRACKET, robot);
+			case ']': return new Key(VK_CLOSE_BRACKET, robot);
+			case '\\': return new Key(VK_BACK_SLASH, robot);
+			case '{': return new Key(VK_OPEN_BRACKET, Key.Modifier.Shift, robot);
+			case '}': return new Key(VK_CLOSE_BRACKET, Key.Modifier.Shift, robot);
+			case '|': return new Key(VK_BACK_SLASH, Key.Modifier.Shift, robot);
+			case ';': return new Key(VK_SEMICOLON, robot);
+			case ':': return new Key(VK_SEMICOLON, Key.Modifier.Shift, robot);
+			case '<': return new Key(VK_COMMA, Key.Modifier.Shift, robot);
+			case '>': return new Key(VK_PERIOD, Key.Modifier.Shift, robot);
+			case '/': return new Key(VK_SLASH, robot);
 
 			default: throw new IllegalArgumentException(format("character '%s' not recognised", text));
 		}
@@ -82,7 +82,9 @@ public class KeyFactory {
 	private static int getKeyCodeFromKeyEvent(String variable) {
 		try {
 			return KeyEvent.class.getField(variable).getInt(null);
-		} catch (NoSuchFieldException | IllegalAccessException e) {
+		} catch (NoSuchFieldException e) {
+			throw new IllegalArgumentException(format("unable to find %s on the 'KeyEvent' class", variable), e);
+		} catch (IllegalAccessException e) {
 			throw new IllegalArgumentException(format("unable to find %s on the 'KeyEvent' class", variable), e);
 		}
 	}

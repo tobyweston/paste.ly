@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -60,7 +61,12 @@ public class Key {
     public void type() {
         try {
             modifier.press(robot);
-            wrapWithException(keyCode, robot::keyPress);
+            wrapWithException(keyCode, new Consumer<Integer>() {
+				@Override
+				public void accept(Integer keycode) {
+					robot.keyPress(keycode);
+				}
+			});
         } finally {
             robot.keyRelease(keyCode);
             modifier.release(robot);
@@ -77,17 +83,25 @@ public class Key {
     }
 
     private static String findConstantFor(int keyCode) {
-        return Arrays.toString(Stream.of(KeyEvent.class.getFields()).filter(fieldMatching(keyCode)).map(Field::getName).toArray());
+        return Arrays.toString(Stream.of(KeyEvent.class.getFields()).filter(fieldMatching(keyCode)).map(new Function<Field, String>() {
+			@Override
+			public String apply(Field t) {
+				return t.getName();
+			}
+		}).toArray());
     }
 
-    private static Predicate<Field> fieldMatching(int keyCode) {
-        return field -> {
-            try {
-                return field.getName().startsWith("VK_") && field.getInt(null) == keyCode;
-            } catch (IllegalAccessException e) {
-                return false;
-            }
-        };
+    private static Predicate<Field> fieldMatching(final int keyCode) {
+        return new Predicate<Field>() {
+			@Override
+			public boolean test(Field field) {
+				try {
+					return field.getName().startsWith("VK_") && field.getInt(null) == keyCode;
+				} catch (IllegalAccessException e) {
+					return false;
+				}
+			}
+		};
     }
 
 }

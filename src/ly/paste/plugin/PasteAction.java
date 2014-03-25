@@ -19,7 +19,7 @@ import static com.intellij.openapi.ui.popup.Balloon.Position.atRight;
 public class PasteAction extends AnAction {
 
     @Override
-    public void actionPerformed(AnActionEvent event) {
+    public void actionPerformed(final AnActionEvent event) {
         new Thread() {
             @Override
             public void run() {
@@ -34,14 +34,17 @@ public class PasteAction extends AnAction {
         }.start();
     }
 
-	private void popup(Exception e, AnActionEvent event) {
-		SwingUtilities.invokeLater(() -> {
-			StatusBar statusBar = WindowManager.getInstance().getStatusBar(PROJECT.getData(event.getDataContext()));
-			JBPopupFactory.getInstance()
-				.createHtmlTextBalloonBuilder(e.getMessage(), ERROR, null)
-				.setFadeoutTime(7500)
-				.createBalloon()
-				.show(RelativePoint.getCenterOf(statusBar.getComponent()), atRight);
+	private void popup(final Exception e, final AnActionEvent event) {
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				StatusBar statusBar = WindowManager.getInstance().getStatusBar(PROJECT.getData(event.getDataContext()));
+				JBPopupFactory.getInstance()
+					.createHtmlTextBalloonBuilder(e.getMessage(), ERROR, null)
+					.setFadeoutTime(7500)
+					.createBalloon()
+					.show(RelativePoint.getCenterOf(statusBar.getComponent()), atRight);
+			}
 		});
 	}
 
