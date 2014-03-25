@@ -1,12 +1,10 @@
 package ly.paste.robot;
 
-import com.google.gson.internal.Streams;
-import groovy.transform.NotYetImplemented;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-import java.util.*;
-import java.util.stream.Stream;
-
-import static java.util.Arrays.*;
+import static java.util.Arrays.asList;
 
 public class Sections {
 
@@ -37,6 +35,10 @@ public class Sections {
 		@Override
 		public String next() {
 			return "";
+		}
+
+		@Override
+		public void remove() {
 		}
 	}
 }
