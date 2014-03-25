@@ -1,7 +1,6 @@
 package ly.paste.robot;
 
 import java.awt.*;
-import java.util.stream.Stream;
 
 /**
  * Ensure you set <code>-Dapple.awt.UIElement=true</code> on MacOSX
@@ -14,7 +13,7 @@ public class AutoType {
 	private final KeyFactory keyFactory;
 
 	public AutoType(Robot robot) {
-		keyFactory = new KeyFactory(robot);
+		keyFactory = new ControlKeys(robot, new KeyEventKeys(robot));
 	}
 
 	public void text(String text) {
