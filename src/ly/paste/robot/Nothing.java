@@ -1,4 +1,6 @@
-package ly.paste.plugin;
+package ly.paste.robot;
+
+import ly.paste.robot.Key;
 
 import java.awt.event.KeyEvent;
 

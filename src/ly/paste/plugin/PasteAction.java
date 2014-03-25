@@ -2,11 +2,11 @@ package ly.paste.plugin;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.keymap.KeymapManager;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.openapi.wm.StatusBar;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.awt.RelativePoint;
+import ly.paste.robot.Clipboard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +27,6 @@ public class PasteAction extends AnAction {
                     Thread.sleep(500);
                     Clipboard clipboard = new Clipboard(new Robot());
                     clipboard.paste();
-                    popup(event);
                 } catch (Exception e) {
                     popup(e, event);
                 }
@@ -46,14 +45,4 @@ public class PasteAction extends AnAction {
 		});
 	}
 
-	private void popup(AnActionEvent event) {
-		SwingUtilities.invokeLater(() -> {
-			StatusBar statusBar = WindowManager.getInstance().getStatusBar(PROJECT.getData(event.getDataContext()));
-			JBPopupFactory.getInstance()
-				.createHtmlTextBalloonBuilder("hello my friend", INFO, null)
-				.setFadeoutTime(7500)
-				.createBalloon()
-				.show(RelativePoint.getCenterOf(statusBar.getComponent()), atRight);
-		});
-	}
 }

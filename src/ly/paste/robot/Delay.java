@@ -1,4 +1,4 @@
-package ly.paste.plugin;
+package ly.paste.robot;
 
 import java.awt.*;
 import java.util.Random;
