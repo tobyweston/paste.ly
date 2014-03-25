@@ -13,7 +13,7 @@ public class AutoType {
 	private final KeyFactory keyFactory;
 
 	public AutoType(Robot robot) {
-		keyFactory = new ControlKeys(robot, new KeyEventKeys(robot));
+		keyFactory = new KeyFactory(robot);
 	}
 
 	public void text(String text) {
