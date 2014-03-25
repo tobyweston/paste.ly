@@ -2,6 +2,7 @@ package ly.paste.plugin;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.keymap.KeymapManager;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.openapi.wm.StatusBar;
 import com.intellij.openapi.wm.WindowManager;
@@ -26,25 +27,33 @@ public class PasteAction extends AnAction {
                     Thread.sleep(500);
                     Clipboard clipboard = new Clipboard(new Robot());
                     clipboard.paste();
-                    SwingUtilities.invokeLater(() -> {
-                        StatusBar statusBar = WindowManager.getInstance().getStatusBar(PROJECT.getData(event.getDataContext()));
-                        JBPopupFactory.getInstance()
-                                .createHtmlTextBalloonBuilder("hello my friend", INFO, null)
-                                .setFadeoutTime(7500)
-                                .createBalloon()
-                                .show(RelativePoint.getCenterOf(statusBar.getComponent()), atRight);
-                    });
+                    popup(event);
                 } catch (Exception e) {
-                    SwingUtilities.invokeLater(() -> {
-                        StatusBar statusBar = WindowManager.getInstance().getStatusBar(PROJECT.getData(event.getDataContext()));
-                        JBPopupFactory.getInstance()
-                                .createHtmlTextBalloonBuilder(e.getMessage(), ERROR, null)
-                                .setFadeoutTime(7500)
-                                .createBalloon()
-                                .show(RelativePoint.getCenterOf(statusBar.getComponent()), atRight);
-                    });
+                    popup(e, event);
                 }
             }
         }.start();
     }
+
+	private void popup(Exception e, AnActionEvent event) {
+		SwingUtilities.invokeLater(() -> {
+			StatusBar statusBar = WindowManager.getInstance().getStatusBar(PROJECT.getData(event.getDataContext()));
+			JBPopupFactory.getInstance()
+				.createHtmlTextBalloonBuilder(e.getMessage(), ERROR, null)
+				.setFadeoutTime(7500)
+				.createBalloon()
+				.show(RelativePoint.getCenterOf(statusBar.getComponent()), atRight);
+		});
+	}
+
+	private void popup(AnActionEvent event) {
+		SwingUtilities.invokeLater(() -> {
+			StatusBar statusBar = WindowManager.getInstance().getStatusBar(PROJECT.getData(event.getDataContext()));
+			JBPopupFactory.getInstance()
+				.createHtmlTextBalloonBuilder("hello my friend", INFO, null)
+				.setFadeoutTime(7500)
+				.createBalloon()
+				.show(RelativePoint.getCenterOf(statusBar.getComponent()), atRight);
+		});
+	}
 }
