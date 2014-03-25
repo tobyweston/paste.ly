@@ -17,11 +17,8 @@ public class ControlKeys implements KeyFactory {
 
 	@Override
 	public Key createFromCharacter(String text) {
-		if (text.length() != 1)
-			throw new IllegalArgumentException("please use a single character");
-
+		KeyFactory.validate(text);
 		switch (text) {
-			case "§": return new Nothing();
 			case "←": return new Key(VK_LEFT, robot);
 			case "↑": return new Key(VK_UP, robot);
 			case "→": return new Key(VK_RIGHT, robot);

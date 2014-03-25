@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class Clipboard {
 
+	private static final Sections sections = new Sections();
+
     private final Robot robot;
 
     public Clipboard(Robot robot) {
@@ -19,7 +21,9 @@ public class Clipboard {
         Transferable contents = clipboard.getContents(new Object());
         try {
             String text = (String) contents.getTransferData(DataFlavor.stringFlavor);
-            new AutoType(robot).text(text);
+			if (sections.isEmpty())
+				sections.initialise(text);
+            new AutoType(robot).text(sections.next());
         } catch (UnsupportedFlavorException | IOException e) {
             throw new IllegalStateException("unable to paste non-string clipboard contents, please make sure only text is in your clipboard");
         }

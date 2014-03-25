@@ -16,8 +16,7 @@ public class KeyEventKeys implements KeyFactory {
 
 	@Override
 	public Key createFromCharacter(String text) {
-		if (text.length() != 1)
-			throw new IllegalArgumentException("please use a single character");
+		KeyFactory.validate(text);
 
 		if (Character.isLetter(text.charAt(0))) {
 			boolean upperCase = Character.isUpperCase(text.charAt(0));
