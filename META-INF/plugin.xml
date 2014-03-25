@@ -1,0 +1,30 @@
+<idea-plugin version="2">
+    <name>Paste.ly</name>
+    <version>1.0</version>
+    <vendor url="http://baddotrobot.com">Bad Robot (London) Ltd</vendor>
+    <id>ly.paste</id>
+
+    <description><![CDATA[
+        <h3>Paste.ly</h3>
+        <br>
+        <b>Features:</b>
+        <br>
+        <ul>
+            <li>Paste the contents of the clipboard a character at a time</li>
+            <li>Simulate user typing for demos</li>
+            <li>Never make a spelling mistake in a live session again</li>
+            <li>Great for recording screencasts</li>
+        </ul>
+        ]]></description>
+
+    <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="133"/>
+
+    <actions>
+        <action id="ly.paste.plugin.PasteAction" class="ly.paste.plugin.PasteAction" text="Paste.ly from Clipboard" description="Paste contents of clipboard">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut first-keystroke="alt shift P" keymap="$default"/>
+        </action>
+    </actions>
+
+</idea-plugin>
