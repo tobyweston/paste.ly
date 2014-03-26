@@ -11,10 +11,12 @@ public class Clipboard {
 	private static final Sections sections = new Sections();
 
     private final Robot robot;
+	private final Typist typist;
 
-    public Clipboard(Robot robot) {
+	public Clipboard(Robot robot) {
         this.robot = robot;
-    }
+		this.typist = new RobotTypist(this.robot);
+	}
 
     public void paste() {
         java.awt.datatransfer.Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -23,11 +25,11 @@ public class Clipboard {
             String text = (String) contents.getTransferData(DataFlavor.stringFlavor);
 			if (sections.isEmpty())
 				sections.initialise(text);
-            new AutoType(robot).text(sections.next());
+			typist.type(sections.next());
         } catch (UnsupportedFlavorException e) {
-            throw new IllegalStateException("unable to paste non-string clipboard contents, please make sure only text is in your clipboard");
+            throw new NonTextPasteAttempt();
         } catch (IOException e) {
-            throw new IllegalStateException("unable to paste non-string clipboard contents, please make sure only text is in your clipboard");
+            throw new NonTextPasteAttempt();
         }
 	}
 
@@ -44,4 +46,9 @@ public class Clipboard {
 		}
 	}
 
+	private static class NonTextPasteAttempt extends IllegalStateException {
+		public NonTextPasteAttempt() {
+			super("unable to paste non-string clipboard contents, please make sure only text is in your clipboard");
+		}
+	}
 }

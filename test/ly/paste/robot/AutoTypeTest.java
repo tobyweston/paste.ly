@@ -7,10 +7,10 @@ import java.util.Arrays;
 public class AutoTypeTest {
 
 	public void typesAllKnownCharacters() throws AWTException {
-		final AutoType type = new AutoType(new Robot());
+		final RobotTypist type = new RobotTypist(new Robot());
 		List<String> letters = Arrays.asList("!", "\"", "£", "$", "%", "^", "&", "*", "(", ")", ".", " ", "?", ",", "`", "'", "-", "=", "~", "@", "#", "_", "+", "\t", "\n", "[", "]", "\\", "{", "}", "|", ";", ",", "<", ">", "/");
 		for (String letter : letters) {
-			type.text(letter);
+			type.type(letter);
 		}
 	}
 

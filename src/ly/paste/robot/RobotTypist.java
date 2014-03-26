@@ -9,14 +9,16 @@ import java.awt.*;
  * <p>
  * In IDEA, you can disable the auto complete right `}` under Editor -> Smart Keys -> Insert pair `}`
  */
-public class AutoType {
+public class RobotTypist implements Typist {
+
 	private final KeyFactory keyFactory;
 
-	public AutoType(Robot robot) {
+	public RobotTypist(Robot robot) {
 		keyFactory = new KeyFactory(robot);
 	}
 
-	public void text(String text) {
+	@Override
+	public void type(String text) {
 		for (int i = 0; i < text.length(); i++) {
 			keyFactory.createFromCharacter(Character.toString(text.charAt(i))).type();
 		}
