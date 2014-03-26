@@ -21,7 +21,7 @@
     <idea-version since-build="133"/>
 
     <actions>
-        <action id="ly.paste.plugin.PasteAction" class="ly.paste.plugin.PasteAction" text="Paste with Paste.ly" description="Paste contents of clipboard">
+        <action id="ly.paste.plugin.PasteAction" class="ly.paste.plugin.PasteAction" text="Paste with Paste.ly" description="Paste contents of clipboard" icon="/icon-run.png">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
             <keyboard-shortcut first-keystroke="control shift P" keymap="$default"/>
         </action>
