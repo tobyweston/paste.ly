@@ -1,16 +1,13 @@
 package ly.paste.robot;
 
-import com.intellij.util.containers.Predicate;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
-import static java.awt.event.KeyEvent.*;
 import static java.lang.String.*;
 
-public class Key {
+public class Key implements Typable {
 
 	private final static Delay delay = Delay.MediumDelay;
 
@@ -18,36 +15,7 @@ public class Key {
 	private final int keyCode;
 	private final Modifier modifier;
 
-	public static enum Modifier {
-
-		None(VK_UNDEFINED) {
-			@Override
-			public void press(Robot robot) { /* No-op*/ }
-
-			@Override
-			public void release(Robot robot) { /* No-op*/ }
-		},
-		Shift(VK_SHIFT),
-		Control(VK_CONTROL),
-		WindowsKey(VK_WINDOWS),
-		Alt(VK_ALT);
-
-		private final int keyCode;
-
-		Modifier(int keyCode) {
-			this.keyCode = keyCode;
-		}
-
-		public void press(Robot robot) {
-			robot.keyPress(keyCode);
-		}
-
-		public void release(Robot robot) {
-			robot.keyRelease(keyCode);
-		}
-	}
-
-	public Key(int keyCode, Robot robot) {
+    public Key(int keyCode, Robot robot) {
 		this(keyCode, Modifier.None, robot);
 	}
 
@@ -57,7 +25,8 @@ public class Key {
 		this.modifier = modifier;
 	}
 
-	public void type() {
+	@Override
+    public void type() {
 		try {
 			modifier.press(robot);
 			robot.keyPress(keyCode);
@@ -69,7 +38,6 @@ public class Key {
 			delay.applyTo(robot);
 		}
 	}
-
 
 	private static String findConstantFor(int keyCode) {
 		for (Field field : Arrays.asList(KeyEvent.class.getFields())) {
