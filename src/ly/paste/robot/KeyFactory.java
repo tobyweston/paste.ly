@@ -50,6 +50,20 @@ public class KeyFactory {
             case '\n': return new Key(VK_ENTER, robot);
             case '\t': return new Nothing();// return new Key(VK_TAB, robot); // ignore tabs if the IDE is going to insert them for us
 
+            // function keys
+            case '①': return new Key(VK_F1, robot);
+            case '②': return new Key(VK_F2, robot);
+            case '③': return new Key(VK_F3, robot);
+            case '④': return new Key(VK_F4, robot);
+            case '⑤': return new Key(VK_F5, robot);
+            case '⑥': return new Key(VK_F6, robot);
+            case '⑦': return new Key(VK_F7, robot);
+            case '⑧': return new Key(VK_F8, robot);
+            case '⑨': return new Key(VK_F9, robot);
+            case '⑩': return new Key(VK_F10, robot);
+            case '⑪': return new Key(VK_F11, robot);
+            case '⑫': return new Key(VK_F12, robot);
+
 			// special keys
 			case '!': return new Key(VK_1, Shift, robot);
 			case '@': return new Key(VK_2, Shift, robot);
@@ -100,7 +114,7 @@ public class KeyFactory {
 		}
 	}
 
-    private static class HeldKey implements Typable {
+    public static class HeldKey implements Typable {
 
         private final Modifier modifier;
         private final Robot robot;
@@ -112,8 +126,7 @@ public class KeyFactory {
 
         @Override
         public void type() {
-            modifier.press(robot);
-            // never release!
+            modifier.press(robot);  // never release!
         }
     }
 
