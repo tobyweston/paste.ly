@@ -67,6 +67,12 @@ public class KeyFactory {
             case '⑩': return new Key(VK_F10, robot, observers);
             case '⑪': return new Key(VK_F11, robot, observers);
             case '⑫': return new Key(VK_F12, robot, observers);
+            case '⑬': return new Key(VK_F13, robot, observers);
+            case '⑭': return new Key(VK_F14, robot, observers);
+            case '⑮': return new Key(VK_F15, robot, observers);
+            case '⑯': return new Key(VK_F16, robot, observers);
+            case '⑰': return new Key(VK_F17, robot, observers);
+            case '⑱': return new Key(VK_F18, robot, observers);
 
 			// IntelliJ key combinations
 			case '☺': return new MakeProject(robot);
