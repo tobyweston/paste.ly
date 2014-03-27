@@ -34,9 +34,9 @@ public class KeyFactory {
 		switch (text.charAt(0)) {
 			// modifiers
 			case '⇧': return new Shift(robot);
-            case '⌥': return new Option(robot);
             case '⌘': return new Command(robot);
 			case '␑': return new Ctrl(robot);
+            case '⌥': return new Option(robot);
             case '⎇': return new Alt(robot);
 
             // navigation
@@ -148,28 +148,25 @@ public class KeyFactory {
         }
     }
 
-    private static class Option extends HeldKey {
-        Option(Robot robot) {
-            super(Modifier.None, robot);
-        }
-
-        @Override
-        public void type() {
-            throw new UnsupportedOperationException("Don't know the keyCode");
-        }
-    }
-
     private static class Ctrl extends HeldKey {
-        public Ctrl(Robot robot) {
+
+		public Ctrl(Robot robot) {
             super(Control, robot);
         }
-    }
+	}
 
     private static class Alt extends HeldKey {
-        Alt(Robot robot) {
+
+		Alt(Robot robot) {
             super(Modifier.Alt, robot);
         }
-    }
+	}
+
+	private static class Option extends Alt {
+		Option(Robot robot) {
+			super(robot);
+		}
+	}
 
 	private class ClearToolWindows extends Key {
 		public ClearToolWindows(Robot robot) {

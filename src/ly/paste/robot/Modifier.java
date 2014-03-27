@@ -8,10 +8,10 @@ public enum Modifier implements Held {
 
 	None(VK_UNDEFINED) {
         @Override
-        public void press(Robot robot) { /* No-op*/ }
+        public void press(Robot robot) { /* No-op */ }
 
         @Override
-        public void release(Robot robot) { /* No-op*/ }
+        public void release(Robot robot) { /* No-op */ }
     },
     Shift(VK_SHIFT),
     Control(VK_CONTROL),
