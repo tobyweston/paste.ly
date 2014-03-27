@@ -5,7 +5,8 @@ import java.awt.event.KeyEvent;
 
 import static java.awt.event.KeyEvent.*;
 import static java.lang.String.format;
-import static ly.paste.robot.Modifier.Shift;
+import static ly.paste.robot.Modifier.*;
+import static ly.paste.robot.ModifierSequence.sequence;
 
 public class KeyFactory {
 
@@ -48,7 +49,8 @@ public class KeyFactory {
             case '␡': return new Key(VK_DELETE, robot);
             case '⏎': return new Key(VK_ENTER, robot);
             case '\n': return new Key(VK_ENTER, robot);
-            case '\t': return new Nothing();// return new Key(VK_TAB, robot); // ignore tabs if the IDE is going to insert them for us
+			case '⇥': return new Key(VK_TAB, robot);
+			case '\t': return new Nothing(); // ignore tabs if the IDE is going to insert them for us
 
             // function keys
             case '①': return new Key(VK_F1, robot);
@@ -63,6 +65,10 @@ public class KeyFactory {
             case '⑩': return new Key(VK_F10, robot);
             case '⑪': return new Key(VK_F11, robot);
             case '⑫': return new Key(VK_F12, robot);
+
+			// IntelliJ key combinations
+			case '☺': return new MakeProject();
+			case '␘': return new ClearToolWindows(robot);
 
 			// special keys
 			case '!': return new Key(VK_1, Shift, robot);
@@ -155,7 +161,7 @@ public class KeyFactory {
 
     private static class Ctrl extends HeldKey {
         public Ctrl(Robot robot) {
-            super(Modifier.Control, robot);
+            super(Control, robot);
         }
     }
 
@@ -165,4 +171,15 @@ public class KeyFactory {
         }
     }
 
+	private class ClearToolWindows extends Key {
+		public ClearToolWindows(Robot robot) {
+			super(VK_F12, sequence(Command, Modifier.Shift), robot);
+		}
+	}
+
+	private class MakeProject extends Key {
+		public MakeProject() {
+			super(VK_F9, sequence(Command, Modifier.Shift), KeyFactory.this.robot);
+		}
+	}
 }

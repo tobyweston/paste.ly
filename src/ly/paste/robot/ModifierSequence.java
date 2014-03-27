@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ModifierSequence implements Button {
+public class ModifierSequence implements Held {
 
     private final Set<Modifier> modifiers = new HashSet<Modifier>();
 

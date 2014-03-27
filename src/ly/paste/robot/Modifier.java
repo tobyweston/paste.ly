@@ -1,18 +1,12 @@
 package ly.paste.robot;
 
-import com.intellij.util.containers.ConcurrentHashSet;
-
 import java.awt.*;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.concurrent.ConcurrentSkipListSet;
 
 import static java.awt.event.KeyEvent.*;
 
-public enum Modifier implements Button {
+public enum Modifier implements Held {
 
-    None(VK_UNDEFINED) {
+	None(VK_UNDEFINED) {
         @Override
         public void press(Robot robot) { /* No-op*/ }
 

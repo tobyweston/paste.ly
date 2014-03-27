@@ -13,13 +13,13 @@ public class Key implements Typable {
 
 	private final Robot robot;
 	private final int keyCode;
-	private final Modifier modifier;
+	private final Held modifier;
 
     public Key(int keyCode, Robot robot) {
 		this(keyCode, Modifier.None, robot);
 	}
 
-	public Key(int keyCode, Modifier modifier, Robot robot) {
+	public Key(int keyCode, Held modifier, Robot robot) {
 		this.robot = robot;
 		this.keyCode = keyCode;
 		this.modifier = modifier;
