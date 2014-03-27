@@ -35,13 +35,11 @@ public class Key implements Typable {
 		} finally {
 			robot.keyRelease(keyCode);
 			modifier.release(robot);
-            Modifier.releaseAll(robot);
 			delay.applyTo(robot);
 		}
 	}
 
 	private static String findConstantFor(int keyCode) {
-        String val = "hello ⇧i'm a little tea pot";
 		for (Field field : Arrays.asList(KeyEvent.class.getFields())) {
 			if (fieldMatching(field, keyCode)) {
 				return field.getName();
