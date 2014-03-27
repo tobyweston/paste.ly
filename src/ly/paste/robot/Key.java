@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static java.lang.String.*;
 
-public class Key implements Typable {
+public class Key extends Observable implements Typable {
 
 	private final static Delay delay = Delay.MediumDelay;
 
@@ -15,14 +15,15 @@ public class Key implements Typable {
 	private final int keyCode;
 	private final Held modifier;
 
-    public Key(int keyCode, Robot robot) {
-		this(keyCode, Modifier.None, robot);
+    public Key(int keyCode, Robot robot, Observer... observers) {
+		this(keyCode, Modifier.None, robot, observers);
 	}
 
-	public Key(int keyCode, Held modifier, Robot robot) {
+	public Key(int keyCode, Held modifier, Robot robot, Observer... observers) {
 		this.robot = robot;
 		this.keyCode = keyCode;
 		this.modifier = modifier;
+		addObserver(observers);
 	}
 
 	@Override
@@ -30,6 +31,7 @@ public class Key implements Typable {
 		try {
 			modifier.press(robot);
 			robot.keyPress(keyCode);
+			notifyObservers(new KeyPressedEvent(keyCode));
 		} catch (Throwable e) {
 			throw new IllegalArgumentException(format("Invalid key code '%s' which is %s in 'KeyEvent'", keyCode, findConstantFor(keyCode)));
 		} finally {
