@@ -67,7 +67,8 @@ public class KeyFactory {
             case '⑫': return new Key(VK_F12, robot);
 
 			// IntelliJ key combinations
-			case '☺': return new MakeProject();
+			case '☺': return new MakeProject(robot);
+			case '☻': return new Compile(robot);
 			case '␘': return new ClearToolWindows(robot);
 
 			// special keys
@@ -175,8 +176,14 @@ public class KeyFactory {
 	}
 
 	private class MakeProject extends Key {
-		public MakeProject() {
-			super(VK_F9, sequence(Command, Modifier.Shift), KeyFactory.this.robot);
+		public MakeProject(Robot robot) {
+			super(VK_F9, Command, robot);
+		}
+	}
+
+	private class Compile extends Key {
+		public Compile(Robot robot) {
+			super(VK_F9, sequence(Command, Shift), robot);
 		}
 	}
 }
