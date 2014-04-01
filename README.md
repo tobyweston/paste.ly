@@ -7,7 +7,8 @@ Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you
 
 ## Useful navigation and control
 
-|-----|-----|
+| Symbol | Description |
+|--------|-------------|
 | `§` | Start a section (each section will be individually pasted)
 |`←` | Left
 |`↑` | Up
@@ -26,7 +27,8 @@ Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you
 
 ## Function keys
 
-|-----|-----|
+| Symbol | Function Key |
+|--------|--------------|
 |`①` | F1
 |`②`  |F2
 |`③`  |F3
@@ -49,11 +51,13 @@ Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you
 
 ## Useful control sequences (IntelliJ)
 
-|-----|-----|
+| Sequence | Description |
+|----------|-------------|
 | `␑⇧⑨` | Compile
 | `␑⇧⑫` | Close all tool windows
 
-|-----|-----|
+| Symbol | Description |
+|--------|-------------|
 | `␘` | Make
 | `☻` | Compile
 | `☺` | Close all tool windows
