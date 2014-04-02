@@ -1,6 +1,6 @@
 <idea-plugin version="2">
     <name>Paste.ly</name>
-    <version>2</version>
+    <version>5</version>
     <vendor url="http://baddotrobot.com">Bad Robot (London) Ltd</vendor>
     <id>ly.paste</id>
 
@@ -21,7 +21,7 @@
     <idea-version since-build="133"/>
 
     <actions>
-        <action id="ly.paste.plugin.PasteAction" class="ly.paste.plugin.PasteAction" text="Paste with Paste.ly" description="Paste contents of clipboard" icon="/icon-run.png">
+        <action id="ly.paste.plugin.RobotPaste" class="ly.paste.plugin.RobotPaste" text="Paste with Paste.ly" description="Paste contents of clipboard" icon="/icon-run.png">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
             <keyboard-shortcut first-keystroke="control shift P" keymap="$default"/>
         </action>

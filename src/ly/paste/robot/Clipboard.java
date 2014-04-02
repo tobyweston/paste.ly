@@ -10,12 +10,10 @@ public class Clipboard {
 
 	private static final Sections sections = new Sections();
 
-    private final Robot robot;
 	private final Typist typist;
 
-	public Clipboard(Robot robot) {
-        this.robot = robot;
-		this.typist = new RobotTypist(this.robot);
+	public Clipboard(Typist typist) {
+		this.typist = typist;
 	}
 
     public void paste() {
@@ -35,7 +33,7 @@ public class Clipboard {
 
     public static void main(String... args) throws Exception {
 		countdown();
-		new Clipboard(new Robot()).paste();
+		new Clipboard(new RobotTypist(new Robot())).paste();
     }
 
 	private static void countdown() throws InterruptedException {
