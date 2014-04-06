@@ -1,7 +1,7 @@
 package ly.paste.intellij;
 
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.util.DocumentUtil;
+import com.intellij.openapi.command.CommandProcessor;
 
 import static com.intellij.openapi.application.ApplicationManager.*;
 
@@ -34,12 +34,12 @@ public class NonEventDispatchingThread {
         return new WriteOperation() {
             @Override
             public void run() {
-                DocumentUtil.writeInRunUndoTransparentAction(operation);
-            }
+				CommandProcessor.getInstance().runUndoTransparentAction(operation);
+			}
         };
-    }
+	}
 
-    private static boolean isEventDispatchThread() {
+	private static boolean isEventDispatchThread() {
         return getApplication().isDispatchThread();
     }
 
