@@ -96,7 +96,7 @@ public class KeyFactory {
 			case '?': return new Key(VK_SLASH, Shift, robot, observers);
 			case ',': return new Key(VK_COMMA, robot, observers);
 			case '`': return new Key(VK_BACK_QUOTE, robot, observers);
-			case '"': return new Key(VK_QUOTE, robot, observers);
+			case '"': return new Key(VK_QUOTE, Shift, robot, observers);
 			case '-': return new Key(VK_MINUS, robot, observers);
 			case '=': return new Key(VK_EQUALS, robot, observers);
 			case '~': return new Key(VK_BACK_QUOTE, Shift, robot, observers);
