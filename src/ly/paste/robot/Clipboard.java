@@ -6,6 +6,8 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
+import static java.awt.datatransfer.DataFlavor.stringFlavor;
+
 public class Clipboard {
 
 	private static final Sections sections = new Sections();
@@ -22,15 +24,18 @@ public class Clipboard {
         java.awt.datatransfer.Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         Transferable contents = clipboard.getContents(new Object());
         try {
-            String text = (String) contents.getTransferData(DataFlavor.stringFlavor);
-			if (sections.isEmpty())
-				sections.initialise(text);
+			if (sections.isEmpty() || sections.reset())
+				sections.initialise((String) contents.getTransferData(stringFlavor));
 			typist.type(sections.next());
         } catch (UnsupportedFlavorException e) {
             throw new NonTextPasteAttempt();
         } catch (IOException e) {
             throw new NonTextPasteAttempt();
         }
+	}
+
+	public static void resetSections() {
+		sections.shouldReset();
 	}
 
     public static void main(String... args) throws Exception {

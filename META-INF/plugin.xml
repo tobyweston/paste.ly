@@ -25,6 +25,10 @@
             <add-to-group group-id="ToolsMenu" anchor="last"/>
             <keyboard-shortcut first-keystroke="control shift P" keymap="$default"/>
         </action>
+        <action id="ly.paste.plugin.ResetSections" class="ly.paste.plugin.ResetSections" text="Reset Paste.ly" description="Reset the Paste.ly clipboard" icon="/icon-run.png">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut first-keystroke="control shift R" keymap="$default"/>
+        </action>
     </actions>
 
 </idea-plugin>

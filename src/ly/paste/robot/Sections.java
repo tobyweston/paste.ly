@@ -10,10 +10,12 @@ public class Sections {
 
 	private List<String> sections = new ArrayList<String>();
 	private Iterator<String> iterator = new EmptyIterator();
+	private Boolean reset = false;
 
 	public void initialise(String text) {
 		sections = asList(text.split("§"));
 		iterator = sections.iterator();
+		reset = false;
 	}
 
 	public boolean isEmpty() {
@@ -24,6 +26,14 @@ public class Sections {
 		if (isEmpty())
 			return "";
 		return iterator.next();
+	}
+
+	public void shouldReset() {
+		reset = true;
+	}
+
+	public boolean reset() {
+		return reset;
 	}
 
 	private static class EmptyIterator implements Iterator<String> {
