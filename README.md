@@ -14,6 +14,8 @@ Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you
 |`↑` | Up
 |`→` | Right
 |`↓` | Down
+|`↖` | Home
+|`↘` | End
 |`⌫` | Backspace
 |`␛` | Esc
 |`␡` | Del

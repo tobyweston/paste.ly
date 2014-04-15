@@ -46,7 +46,9 @@ public class KeyFactory {
             case '↑': return new Key(VK_UP, robot, observers);
             case '→': return new Key(VK_RIGHT, robot, observers);
             case '↓': return new Key(VK_DOWN, robot, observers);
-            case '⌫': return new Key(VK_BACK_SPACE, robot, observers);
+            case '↖': return new Key(VK_HOME, robot, observers);
+			case '↘': return new Key(VK_END, robot, observers);
+			case '⌫': return new Key(VK_BACK_SPACE, robot, observers);
             case '␛': return new Key(VK_ESCAPE, robot, observers);
             case '␡': return new Key(VK_DELETE, robot, observers);
             case '⏎': return new Key(VK_ENTER, robot, observers);

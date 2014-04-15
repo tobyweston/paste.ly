@@ -1,6 +1,6 @@
 <idea-plugin version="2">
     <name>Paste.ly</name>
-    <version>7</version>
+    <version>8</version>
     <vendor url="http://baddotrobot.com">Bad Robot (London) Ltd</vendor>
     <id>ly.paste</id>
 
