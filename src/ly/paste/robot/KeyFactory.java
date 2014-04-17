@@ -52,6 +52,7 @@ public class KeyFactory {
             case '⏎': return new Key(VK_ENTER, robot, observers);
             case '\n': return new Key(VK_ENTER, robot, observers);
 			case '⇥': return new Key(VK_TAB, robot, observers);
+			case '❙': return new Pause();
 			case '\t': return new Nothing(); // ignore tabs if the IDE is going to insert them for us
 
             // function keys
@@ -207,6 +208,21 @@ public class KeyFactory {
 	private class Compile extends Key {
 		public Compile(Robot robot) {
 			super(VK_F9, sequence(Command, Shift), robot, observers);
+		}
+	}
+
+	private class Pause extends Key {
+		public Pause() {
+			super(VK_UNDEFINED, null, observers);
+		}
+
+		@Override
+		public void type() {
+			try {
+				Thread.sleep(250);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
 		}
 	}
 }

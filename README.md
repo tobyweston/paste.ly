@@ -23,6 +23,7 @@ Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you
 |`␑` | Ctrl
 |`⌥` | Option
 |`⎇` | Alt
+|`❙` | Pause (250ms)
 |`⇥` | Tab
 
 ## Function keys

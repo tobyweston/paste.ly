@@ -20,7 +20,6 @@ public class ReleaseHeldKey implements Observer {
 
 	@Override
 	public void update(Observable observable, KeyPressedEvent event) {
-		System.out.println("released " + held);
 		for (Held key : held)
 			key.release(robot);
 	}
