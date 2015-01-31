@@ -57,7 +57,9 @@ Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you
 | Sequence | Description |
 |----------|-------------|
 | `␑⇧⑨` | Compile
+| `␑⇧⑩` | Compile and run 
 | `⌘⇧⑫` | Close all tool windows
+| `§␑⇧⑩§⌘⇧⑫` | Compile and run/close all tool windows combo
 
 | Symbol | Description |
 |--------|-------------|
