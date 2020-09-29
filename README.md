@@ -1,6 +1,10 @@
 # Paste.ly
 IntelliJ Plugin
 
+Copy any text into the clipboard and hot ⌘ + ⇧ + p to paste it into your IntelliJ editor one character at a time. Useful for pre-canned demos or if you're recording a screencast. Look for the menu items under `Tools`. 
+
+Use the special characters below to control things like compilation or navigating around the editor.
+
 Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you really want a tab.
 
 # Supported tags
@@ -9,7 +13,7 @@ Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you
 
 | Symbol | Description |
 |--------|-------------|
-| `§` | Start a section (each section will be individually pasted)
+| `§` | Start a section (each section will be individually pasted when you hit ⌘ + ⇧ + p)
 |`←` | Left
 |`↑` | Up
 |`→` | Right
@@ -60,6 +64,7 @@ Tabs (as in `\t`) are ignored as IDEA will put tabs in for you. Use `⇥` if you
 | `␑⇧⑩` | Compile and run 
 | `⌘⇧⑫` | Close all tool windows
 | `§␑⇧⑩§⌘⇧⑫` | Compile and run/close all tool windows combo
+| `⌥⌘w` | Evaluate (Scala) worksheet
 
 | Symbol | Description |
 |--------|-------------|
