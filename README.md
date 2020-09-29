@@ -1,7 +1,7 @@
 # Paste.ly
 IntelliJ Plugin
 
-Copy any text into the clipboard and hot ⌘ + ⇧ + p to paste it into your IntelliJ editor one character at a time. Useful for pre-canned demos or if you're recording a screencast. Look for the menu items under `Tools`. 
+Copy any text into the clipboard and hit ⌘ + ⇧ + p to paste it into your IntelliJ editor *one character at a time*. Useful for pre-canned demos or if you're recording a screencast. Look for the menu items under `Tools`. 
 
 Use the special characters below to control things like compilation or navigating around the editor.
 
